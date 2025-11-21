@@ -1,6 +1,4 @@
 #include <cstdio>
-#include "readline/readline.h"
-#include "readline/history.h"
 
 #include <filesystem>
 #include <iostream>
@@ -9,6 +7,9 @@
 #include <termios.h>
 #include <unistd.h>
 #include <vector>
+
+#include "readline/history.h"
+#include "readline/readline.h"
 
 std::vector<std::string> splitInput(std::string input, char delim)
 {
@@ -40,6 +41,11 @@ std::vector<std::string> splitInput(std::string input, char delim)
 
 void exec(std::vector<std::string> args)
 {
+    if (args.empty())
+    {
+        std::cerr << "no command provided\n";
+        return;
+    }
     std::vector<char *> c_args;
     for (std::string &word : args)
     {
@@ -49,10 +55,17 @@ void exec(std::vector<std::string> args)
 
     pid_t pid = fork();
 
+    if (pid < 0)
+    {
+        std::cerr << "fork failed, cannot execute\n";
+    }
+
     if (pid == 0)
     {
-        execvp(c_args[0], c_args.data());
-        exit(1);
+        if (execvp(c_args[0], c_args.data()) == -1)
+        {
+            std::cerr << args[0] + ": command not found\n";
+        }
     }
     else
     {

@@ -275,6 +275,7 @@ CMakeFiles/shell.dir/src/main.cpp.o
  /usr/include/locale.h
  /usr/include/pthread.h
  /usr/include/readline/chardefs.h
+ /usr/include/readline/history.h
  /usr/include/readline/keymaps.h
  /usr/include/readline/readline.h
  /usr/include/readline/rlstdc.h

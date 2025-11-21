@@ -274,6 +274,7 @@ CMakeFiles/shell.dir/src/main.cpp.o: /home/logan/Projects/shell/src/main.cpp \
   /usr/include/locale.h \
   /usr/include/pthread.h \
   /usr/include/readline/chardefs.h \
+  /usr/include/readline/history.h \
   /usr/include/readline/keymaps.h \
   /usr/include/readline/readline.h \
   /usr/include/readline/rlstdc.h \
@@ -393,6 +394,8 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 /usr/include/readline/rlstdc.h:
 
 /usr/include/readline/readline.h:
+
+/usr/include/readline/history.h:
 
 /usr/lib/libstdc++.so:
 

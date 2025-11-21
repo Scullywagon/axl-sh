@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/shell.dir/link.d CMakeFiles/shell.dir/src/main.cpp.o -o shell
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/shell.dir/link.d CMakeFiles/shell.dir/src/main.cpp.o -o shell  /usr/lib/libreadline.so

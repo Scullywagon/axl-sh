@@ -1,7 +1,12 @@
+#include <cstdio>
+#include "readline/readline.h"
+#include "readline/history.h"
+
 #include <filesystem>
 #include <iostream>
 #include <string>
 #include <sys/wait.h>
+#include <termios.h>
 #include <unistd.h>
 #include <vector>
 
@@ -84,11 +89,15 @@ int main()
 {
     while (true)
     {
-        std::cout << prompt();
-        std::string input;
-        std::getline(std::cin, input);
+        char *input = readline(prompt().c_str());
+        add_history(input);
 
-        std::vector<std::string> args = splitInput(input, ' ');
+        std::vector<std::string> args = splitInput(std::string(input), ' ');
+
+        if (args[0] == "exit")
+        {
+            break;
+        }
 
         if (args[0] == "cd")
         {

@@ -96,6 +96,7 @@ shell_EXTERNAL_OBJECTS =
 shell: CMakeFiles/shell.dir/src/main.cpp.o
 shell: CMakeFiles/shell.dir/build.make
 shell: CMakeFiles/shell.dir/compiler_depend.ts
+shell: /usr/lib/libreadline.so
 shell: CMakeFiles/shell.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/logan/Projects/shell/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable shell"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/shell.dir/link.txt --verbose=$(VERBOSE)

@@ -11,6 +11,7 @@
 		"commands" : 
 		[
 			"add_executable",
+			"target_link_libraries",
 			"include_directories"
 		],
 		"files" : 
@@ -25,13 +26,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 12,
+				"line" : 13,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 8,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 9,
 				"parent" : 0
 			}
 		]
@@ -53,7 +60,7 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 2,
+					"backtrace" : 3,
 					"path" : "/home/logan/Projects/shell/include"
 				}
 			],
@@ -75,8 +82,23 @@
 	"id" : "shell::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
+		"commandFragments" : 
+		[
+			{
+				"backtrace" : 2,
+				"fragment" : "/usr/lib/libreadline.so",
+				"role" : "libraries"
+			}
+		],
 		"language" : "CXX"
 	},
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 2,
+			"fragment" : "/usr/lib/libreadline.so"
+		}
+	],
 	"name" : "shell",
 	"nameOnDisk" : "shell",
 	"paths" : 

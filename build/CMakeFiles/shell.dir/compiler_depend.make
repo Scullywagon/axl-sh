@@ -56,6 +56,17 @@ CMakeFiles/shell.dir/src/main.cpp.o: /home/logan/Projects/shell/src/main.cpp \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/termios-baud.h \
+  /usr/include/bits/termios-c_cc.h \
+  /usr/include/bits/termios-c_cflag.h \
+  /usr/include/bits/termios-c_iflag.h \
+  /usr/include/bits/termios-c_lflag.h \
+  /usr/include/bits/termios-c_oflag.h \
+  /usr/include/bits/termios-cbaud.h \
+  /usr/include/bits/termios-misc.h \
+  /usr/include/bits/termios-struct.h \
+  /usr/include/bits/termios-tcflow.h \
+  /usr/include/bits/termios.h \
   /usr/include/bits/thread-shared-types.h \
   /usr/include/bits/time.h \
   /usr/include/bits/time64.h \
@@ -262,18 +273,28 @@ CMakeFiles/shell.dir/src/main.cpp.o: /home/logan/Projects/shell/src/main.cpp \
   /usr/include/linux/types.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
+  /usr/include/readline/chardefs.h \
+  /usr/include/readline/keymaps.h \
+  /usr/include/readline/readline.h \
+  /usr/include/readline/rlstdc.h \
+  /usr/include/readline/rltypedefs.h \
+  /usr/include/readline/tilde.h \
   /usr/include/sched.h \
   /usr/include/signal.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/single_threaded.h \
+  /usr/include/sys/ttydefaults.h \
   /usr/include/sys/types.h \
   /usr/include/sys/ucontext.h \
   /usr/include/sys/wait.h \
+  /usr/include/termios.h \
   /usr/include/time.h \
   /usr/include/unistd.h \
   /usr/include/wchar.h \
@@ -298,6 +319,8 @@ shell: /usr/lib/Scrt1.o \
   /usr/lib/libc_nonshared.a \
   /usr/lib/libm.so.6 \
   /usr/lib/libmvec.so.1 \
+  /usr/lib/libncursesw.so.6 \
+  /usr/lib/libreadline.so \
   CMakeFiles/shell.dir/src/main.cpp.o
 
 
@@ -335,13 +358,19 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/time.h:
 
+/usr/include/termios.h:
+
 /usr/include/sys/wait.h:
 
 /usr/include/sys/types.h:
 
+/usr/include/sys/ttydefaults.h:
+
 /usr/include/sys/select.h:
 
 /usr/include/sys/cdefs.h:
+
+/usr/include/string.h:
 
 /usr/include/stdlib.h:
 
@@ -349,11 +378,21 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/stdc-predef.h:
 
+/usr/include/strings.h:
+
 /usr/include/signal.h:
 
 /usr/include/wctype.h:
 
 /usr/include/sched.h:
+
+/usr/include/readline/tilde.h:
+
+/usr/include/readline/rltypedefs.h:
+
+/usr/include/readline/rlstdc.h:
+
+/usr/include/readline/readline.h:
 
 /usr/lib/libstdc++.so:
 
@@ -361,23 +400,17 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/linux/stddef.h:
 
-/usr/include/bits/types/__locale_t.h:
+/usr/include/linux/sched/types.h:
 
-/usr/include/c++/15.2.1/bits/sstream.tcc:
+/usr/include/linux/errno.h:
 
-/usr/include/c++/15.2.1/bits/fs_ops.h:
+/usr/include/linux/close_range.h:
 
-/usr/lib/crtn.o:
+/usr/include/gnu/stubs.h:
 
-/usr/include/c++/15.2.1/bits/functional_hash.h:
+/usr/include/stdint.h:
 
-/usr/include/c++/15.2.1/bits/exception_ptr.h:
-
-/usr/lib/libc.so:
-
-/usr/include/bits/pthreadtypes.h:
-
-/usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
+/usr/include/endian.h:
 
 /usr/include/c++/15.2.1/bits/concept_check.h:
 
@@ -407,8 +440,6 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/memoryfwd.h:
 
-/usr/include/bits/signum-generic.h:
-
 /usr/include/bits/types/timer_t.h:
 
 /usr/include/c++/15.2.1/bits/char_traits.h:
@@ -422,10 +453,6 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 /usr/include/ctype.h:
 
 /usr/include/bits/types/struct_sched_param.h:
-
-/usr/include/c++/15.2.1/bits/functexcept.h:
-
-/usr/include/c++/15.2.1/streambuf:
 
 /usr/include/c++/15.2.1/bits/chrono.h:
 
@@ -447,17 +474,49 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/bits/types/__fpos_t.h:
 
+/usr/include/bits/types/__locale_t.h:
+
+/usr/include/c++/15.2.1/bits/sstream.tcc:
+
 /usr/include/bits/types/__fpos64_t.h:
 
 /usr/include/bits/errno.h:
 
-/usr/include/c++/15.2.1/bits/align.h:
+/usr/include/bits/time64.h:
 
-/usr/include/c++/15.2.1/debug/debug.h:
+/usr/include/bits/stdlib-float.h:
+
+/usr/lib/libreadline.so:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h:
 
 /usr/include/c++/15.2.1/type_traits:
 
+/usr/include/bits/termios-tcflow.h:
+
+/usr/include/bits/termios-misc.h:
+
+/usr/include/c++/15.2.1/iostream:
+
+/usr/include/bits/termios-cbaud.h:
+
+/usr/include/bits/termios-c_oflag.h:
+
+/usr/include/c++/15.2.1/codecvt:
+
+/usr/include/bits/termios-c_lflag.h:
+
+/usr/include/bits/termios-struct.h:
+
 /usr/include/bits/locale.h:
+
+/usr/include/readline/chardefs.h:
+
+/usr/include/errno.h:
+
+/usr/include/bits/getopt_posix.h:
+
+/usr/include/c++/15.2.1/tuple:
 
 /usr/include/bits/atomic_wide_counter.h:
 
@@ -471,11 +530,9 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/locale_facets_nonio.h:
 
-/usr/include/c++/15.2.1/bits/parse_numbers.h:
+/usr/include/libintl.h:
 
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h:
-
-/usr/include/c++/15.2.1/bits/cpp_type_traits.h:
+/usr/include/bits/endianness.h:
 
 /usr/include/bits/long-double.h:
 
@@ -484,6 +541,10 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 /usr/include/c++/15.2.1/cwchar:
 
 /usr/include/bits/siginfo-arch.h:
+
+/usr/include/c++/15.2.1/bits/cpp_type_traits.h:
+
+/usr/include/bits/signum-generic.h:
 
 /usr/include/bits/types/idtype_t.h:
 
@@ -497,12 +558,6 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/time_members.h:
 
-/usr/include/bits/time64.h:
-
-/usr/include/bits/stdlib-float.h:
-
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/ctype_base.h:
-
 /usr/include/c++/15.2.1/bit:
 
 /usr/include/bits/siginfo-consts-arch.h:
@@ -515,9 +570,27 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/bits/sigaction.h:
 
+/usr/include/c++/15.2.1/debug/debug.h:
+
+/usr/include/c++/15.2.1/bits/align.h:
+
+/usr/include/c++/15.2.1/bits/functexcept.h:
+
+/usr/include/c++/15.2.1/streambuf:
+
+/usr/include/features-time64.h:
+
+/usr/include/c++/15.2.1/bits/quoted_string.h:
+
 /usr/include/asm-generic/posix_types.h:
 
 /usr/include/c++/15.2.1/bits/locale_classes.tcc:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/bits/types/__sigval_t.h:
+
+/usr/lib/libncursesw.so.6:
 
 /usr/include/c++/15.2.1/bits/version.h:
 
@@ -525,15 +598,27 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/invoke.h:
 
-/usr/include/c++/15.2.1/bits/stl_function.h:
-
 /usr/include/bits/thread-shared-types.h:
 
 /usr/include/c++/15.2.1/ios:
 
+/usr/include/bits/termios-c_iflag.h:
+
 /usr/include/bits/sigthread.h:
 
 /usr/include/c++/15.2.1/bits/ostream.h:
+
+/usr/include/c++/15.2.1/bits/parse_numbers.h:
+
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/atomic_word.h:
+
+/usr/include/bits/termios.h:
+
+/usr/include/c++/15.2.1/bits/hash_bytes.h:
+
+/usr/include/c++/15.2.1/backward/binders.h:
+
+/usr/include/c++/15.2.1/cctype:
 
 /usr/include/bits/stdint-least.h:
 
@@ -551,11 +636,13 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/pstl/pstl_config.h:
 
-/usr/include/c++/15.2.1/bits/fs_fwd.h:
+/usr/lib/libc.so:
 
-/usr/include/bits/pthreadtypes-arch.h:
+/usr/include/bits/pthreadtypes.h:
 
-/usr/include/gnu/stubs.h:
+/usr/include/c++/15.2.1/bits/exception_ptr.h:
+
+/usr/include/readline/keymaps.h:
 
 /usr/include/c++/15.2.1/ext/atomicity.h:
 
@@ -625,8 +712,6 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/bits/stdint-intn.h:
 
-/usr/include/linux/close_range.h:
-
 /usr/include/bits/types/cookie_io_functions_t.h:
 
 /usr/include/c++/15.2.1/cstdlib:
@@ -635,15 +720,33 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/bits/sched.h:
 
+/usr/include/bits/termios-baud.h:
+
 /usr/include/bits/types/__FILE.h:
 
 /usr/include/bits/types/time_t.h:
 
-/usr/include/c++/15.2.1/bits/hash_bytes.h:
+/usr/include/c++/15.2.1/bits/range_access.h:
 
-/usr/include/c++/15.2.1/backward/binders.h:
+/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h:
 
-/usr/include/c++/15.2.1/cctype:
+/usr/include/c++/15.2.1/bits/stl_function.h:
+
+/usr/include/bits/termios-c_cflag.h:
+
+/usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
+
+/usr/include/bits/pthreadtypes-arch.h:
+
+/usr/include/c++/15.2.1/bits/fs_fwd.h:
+
+/usr/lib/crtn.o:
+
+/usr/include/c++/15.2.1/bits/functional_hash.h:
+
+/usr/include/c++/15.2.1/bits/fs_ops.h:
+
+/usr/include/bits/termios-c_cc.h:
 
 /usr/include/c++/15.2.1/bits/ios_base.h:
 
@@ -711,10 +814,6 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/postypes.h:
 
-/usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++allocator.h:
-
-/usr/include/c++/15.2.1/bits/range_access.h:
-
 /usr/include/c++/15.2.1/bits/ranges_base.h:
 
 /usr/include/c++/15.2.1/bits/refwrap.h:
@@ -732,10 +831,6 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 /usr/include/c++/15.2.1/bits/iterator_concepts.h:
 
 /usr/include/c++/15.2.1/bits/std_abs.h:
-
-/usr/include/bits/types/__sigval_t.h:
-
-/usr/include/gnu/stubs-64.h:
 
 /usr/include/c++/15.2.1/bits/stl_iterator_base_types.h:
 
@@ -755,12 +850,6 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/exception:
 
-/usr/include/bits/getopt_posix.h:
-
-/usr/include/c++/15.2.1/tuple:
-
-/usr/include/errno.h:
-
 /usr/include/c++/15.2.1/bits/streambuf_iterator.h:
 
 /usr/include/bits/typesizes.h:
@@ -777,9 +866,13 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/bits/uses_allocator_args.h:
 
-/usr/include/c++/15.2.1/clocale:
+/usr/include/linux/posix_types.h:
 
-/usr/include/c++/15.2.1/codecvt:
+/usr/include/bits/types/FILE.h:
+
+/usr/include/c++/15.2.1/bits/utility.h:
+
+/usr/include/c++/15.2.1/clocale:
 
 /usr/include/c++/15.2.1/concepts:
 
@@ -803,9 +896,9 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/ext/alloc_traits.h:
 
-/usr/include/c++/15.2.1/bits/cxxabi_forced.h:
-
 /usr/include/c++/15.2.1/bits/ranges_cmp.h:
+
+/usr/include/c++/15.2.1/bits/cxxabi_forced.h:
 
 /usr/include/c++/15.2.1/ext/concurrence.h:
 
@@ -831,8 +924,6 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/iosfwd:
 
-/usr/include/c++/15.2.1/iostream:
-
 /usr/include/c++/15.2.1/ext/aligned_buffer.h:
 
 /usr/include/c++/15.2.1/locale:
@@ -853,10 +944,6 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 
 /usr/include/c++/15.2.1/string_view:
 
-/usr/include/stdint.h:
-
-/usr/include/endian.h:
-
 /usr/include/c++/15.2.1/typeinfo:
 
 /usr/include/bits/types/__sigset_t.h:
@@ -876,21 +963,3 @@ CMakeFiles/shell.dir/src/main.cpp.o:
 /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/messages_members.h:
 
 /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/os_defines.h:
-
-/usr/include/c++/15.2.1/bits/quoted_string.h:
-
-/usr/include/features-time64.h:
-
-/usr/include/bits/endianness.h:
-
-/usr/include/libintl.h:
-
-/usr/include/linux/errno.h:
-
-/usr/include/bits/types/FILE.h:
-
-/usr/include/c++/15.2.1/bits/utility.h:
-
-/usr/include/linux/posix_types.h:
-
-/usr/include/linux/sched/types.h:

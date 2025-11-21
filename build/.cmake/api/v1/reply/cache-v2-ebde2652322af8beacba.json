@@ -1070,6 +1070,18 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "READLINE_LIB",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/usr/lib/libreadline.so"
+		},
+		{
 			"name" : "shell_BINARY_DIR",
 			"properties" : 
 			[

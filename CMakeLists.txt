@@ -7,9 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(include)
 
-file(GLOB SRC_CPP CONFIGURE_DEPENDS "src/*.cpp")
+file(GLOB SRC_FILES CONFIGURE_DEPENDS "src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${SRC_FILES})
-
-
-

@@ -1,5 +1,4 @@
-#include <cstdio>
-
+#include <cstdlib>
 #include <filesystem>
 #include <iostream>
 #include <string>
@@ -10,6 +9,8 @@
 
 #include "readline/history.h"
 #include "readline/readline.h"
+
+extern char **environ;
 
 std::vector<std::string> splitInput(std::string input, char delim)
 {
@@ -75,13 +76,39 @@ void exec(std::vector<std::string> args)
 
 void changeDir(std::vector<std::string> args)
 {
-    std::string dir = "~/";
+    std::string dir = std::getenv("USER");
     if (args.size() > 1)
     {
         dir = args[1];
     }
 
     chdir(dir.c_str());
+}
+
+void setEnv(std::vector<std::string> args)
+{
+    if (args.size() == 1)
+        return;
+    for (int i = 1; i < args.size(); i++)
+    {
+        std::vector<std::string> pair = splitInput(std::string(args[i]), '=');
+        if (pair.size() != 2)
+        {
+            std::cout << "completely incorrect input, try again dumbass\n";
+            return;
+        }
+        setenv(pair[0].c_str(), pair[1].c_str(), 1);
+    }
+}
+
+void unsetEnv(std::vector<std::string> args)
+{
+    if (args.size() == 1)
+        return;
+    for (int i = 1; i < args.size(); i++)
+    {
+        unsetenv(args[i].c_str());
+    }
 }
 
 std::string prompt()
@@ -108,16 +135,16 @@ int main()
         std::vector<std::string> args = splitInput(std::string(input), ' ');
 
         if (args[0] == "exit")
-        {
-            break;
-        }
-
-        if (args[0] == "cd")
-        {
+            return 0;
+        else if (args[0] == "cd")
             changeDir(args);
-            continue;
-        }
-
-        exec(args);
+        else if (args[0] == "export")
+            setEnv(args);
+        else if (args[0] == "unset")
+            unsetEnv(args);
+        else
+            exec(args);
     }
+
+    return 0;
 }

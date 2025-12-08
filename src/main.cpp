@@ -12,6 +12,30 @@
 
 extern char **environ;
 
+std::string getMyEnv(std::string var)
+{
+    std::string res = var.substr(1);
+    const char *val = getenv(res.c_str());
+    if (val)
+    {
+        return std::string(val);
+    }
+    else
+    {
+        return "";
+    }
+}
+
+void unsetEnv(std::vector<std::string> args)
+{
+    if (args.size() == 1)
+        return;
+    for (int i = 1; i < args.size(); i++)
+    {
+        unsetenv(args[i].c_str());
+    }
+}
+
 std::vector<std::string> splitInput(std::string input, char delim)
 {
     std::vector<std::string> result;
@@ -50,6 +74,11 @@ void exec(std::vector<std::string> args)
     std::vector<char *> c_args;
     for (std::string &word : args)
     {
+        if (word.size() > 1 && word[0] == '$')
+        {
+            std::cout << getMyEnv(word) << std::endl;
+            word = getMyEnv(word);
+        }
         c_args.push_back(const_cast<char *>(word.c_str()));
     }
     c_args.push_back(nullptr);
@@ -85,32 +114,6 @@ void changeDir(std::vector<std::string> args)
     chdir(dir.c_str());
 }
 
-void setEnv(std::vector<std::string> args)
-{
-    if (args.size() == 1)
-        return;
-    for (int i = 1; i < args.size(); i++)
-    {
-        std::vector<std::string> pair = splitInput(std::string(args[i]), '=');
-        if (pair.size() != 2)
-        {
-            std::cout << "completely incorrect input, try again dumbass\n";
-            return;
-        }
-        setenv(pair[0].c_str(), pair[1].c_str(), 1);
-    }
-}
-
-void unsetEnv(std::vector<std::string> args)
-{
-    if (args.size() == 1)
-        return;
-    for (int i = 1; i < args.size(); i++)
-    {
-        unsetenv(args[i].c_str());
-    }
-}
-
 std::string prompt()
 {
     std::string user = std::getenv("USER");
@@ -123,6 +126,16 @@ std::string prompt()
         pathStr.replace(0, home.size(), "~");
 
     return "[" + pathStr + "] " + user + " : ";
+}
+
+void setEnv(std::vector<std::string> args)
+{
+    if (args.size() != 3)
+        return;
+    for (int i = 1; i < args.size(); i++)
+    {
+        setenv(args[1].c_str(), args[2].c_str(), 1);
+    }
 }
 
 int main()
@@ -138,7 +151,7 @@ int main()
             return 0;
         else if (args[0] == "cd")
             changeDir(args);
-        else if (args[0] == "export")
+        else if (args[0] == "set")
             setEnv(args);
         else if (args[0] == "unset")
             unsetEnv(args);

@@ -118,24 +118,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named shell
+# Target rules for targets named axl
 
 # Build rule for target.
-shell: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 shell
-.PHONY : shell
+axl: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 axl
+.PHONY : axl
 
 # fast build rule for target.
-shell/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/build
-.PHONY : shell/fast
+axl/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/build
+.PHONY : axl/fast
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -143,7 +143,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -151,7 +151,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/shell.dir/build.make CMakeFiles/shell.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -162,7 +162,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... shell"
+	@echo "... axl"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

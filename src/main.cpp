@@ -139,8 +139,34 @@ void setEnv(std::vector<std::string> args)
     }
 }
 
-int main()
+bool hasFlag(int argc, char **argv, const std::string &flag)
 {
+    for (int i = 0; i < argc; ++i)
+    {
+        if (argv[i] == flag)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main(int argc, char **argv)
+{
+    bool is_login_shell = false;
+    if (argv[0][0] == '-')
+    {
+        is_login_shell = true;
+    }
+    if (hasFlag(argc, argv, "--login"))
+    {
+        is_login_shell = true;
+    }
+
+    if (is_login_shell)
+    {
+    }
+
     while (true)
     {
         char *input = readline(prompt().c_str());

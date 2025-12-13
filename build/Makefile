@@ -154,6 +154,54 @@ src/config.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/config.cpp.s
 .PHONY : src/config.cpp.s
 
+src/env.o: src/env.cpp.o
+.PHONY : src/env.o
+
+# target to build an object file
+src/env.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/env.cpp.o
+.PHONY : src/env.cpp.o
+
+src/env.i: src/env.cpp.i
+.PHONY : src/env.i
+
+# target to preprocess a source file
+src/env.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/env.cpp.i
+.PHONY : src/env.cpp.i
+
+src/env.s: src/env.cpp.s
+.PHONY : src/env.s
+
+# target to generate assembly for a file
+src/env.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/env.cpp.s
+.PHONY : src/env.cpp.s
+
+src/exec.o: src/exec.cpp.o
+.PHONY : src/exec.o
+
+# target to build an object file
+src/exec.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/exec.cpp.o
+.PHONY : src/exec.cpp.o
+
+src/exec.i: src/exec.cpp.i
+.PHONY : src/exec.i
+
+# target to preprocess a source file
+src/exec.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/exec.cpp.i
+.PHONY : src/exec.cpp.i
+
+src/exec.s: src/exec.cpp.s
+.PHONY : src/exec.s
+
+# target to generate assembly for a file
+src/exec.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/exec.cpp.s
+.PHONY : src/exec.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -178,6 +226,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/parse.o: src/parse.cpp.o
+.PHONY : src/parse.o
+
+# target to build an object file
+src/parse.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/parse.cpp.o
+.PHONY : src/parse.cpp.o
+
+src/parse.i: src/parse.cpp.i
+.PHONY : src/parse.i
+
+# target to preprocess a source file
+src/parse.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/parse.cpp.i
+.PHONY : src/parse.cpp.i
+
+src/parse.s: src/parse.cpp.s
+.PHONY : src/parse.s
+
+# target to generate assembly for a file
+src/parse.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/axl.dir/build.make CMakeFiles/axl.dir/src/parse.cpp.s
+.PHONY : src/parse.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -190,9 +262,18 @@ help:
 	@echo "... src/config.o"
 	@echo "... src/config.i"
 	@echo "... src/config.s"
+	@echo "... src/env.o"
+	@echo "... src/env.i"
+	@echo "... src/env.s"
+	@echo "... src/exec.o"
+	@echo "... src/exec.i"
+	@echo "... src/exec.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parse.o"
+	@echo "... src/parse.i"
+	@echo "... src/parse.s"
 .PHONY : help
 
 

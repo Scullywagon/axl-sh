@@ -10,110 +10,13 @@
 #include "readline/history.h"
 #include "readline/readline.h"
 
+#include "../include/config.hpp"
+#include "../include/env.hpp"
+#include "../include/exec.hpp"
+#include "../include/parse.hpp"
+
 extern char **environ;
-
-std::string getMyEnv(std::string var)
-{
-    std::string res = var.substr(1);
-    const char *val = getenv(res.c_str());
-    if (val)
-    {
-        return std::string(val);
-    }
-    else
-    {
-        return "";
-    }
-}
-
-void unsetEnv(std::vector<std::string> args)
-{
-    if (args.size() == 1)
-        return;
-    for (int i = 1; i < args.size(); i++)
-    {
-        unsetenv(args[i].c_str());
-    }
-}
-
-std::vector<std::string> splitInput(std::string input, char delim)
-{
-    std::vector<std::string> result;
-    std::string sub_str = "";
-
-    for (char x : input)
-    {
-        if (x == delim)
-        {
-            if (sub_str != "")
-            {
-                result.push_back(sub_str);
-            }
-            sub_str = "";
-            continue;
-        }
-
-        sub_str += x;
-    }
-
-    if (sub_str != "")
-    {
-        result.push_back(sub_str);
-    }
-
-    return result;
-}
-
-void exec(std::vector<std::string> args)
-{
-    if (args.empty())
-    {
-        std::cerr << "no command provided\n";
-        return;
-    }
-    std::vector<char *> c_args;
-    for (std::string &word : args)
-    {
-        if (word.size() > 1 && word[0] == '$')
-        {
-            std::cout << getMyEnv(word) << std::endl;
-            word = getMyEnv(word);
-        }
-        c_args.push_back(const_cast<char *>(word.c_str()));
-    }
-    c_args.push_back(nullptr);
-
-    pid_t pid = fork();
-
-    if (pid < 0)
-    {
-        std::cerr << "fork failed, cannot execute\n";
-    }
-
-    if (pid == 0)
-    {
-        if (execvp(c_args[0], c_args.data()) == -1)
-        {
-            std::cerr << args[0] + ": command not found\n";
-        }
-    }
-    else
-    {
-        waitpid(pid, nullptr, 0);
-    }
-}
-
-// test commment
-void changeDir(std::vector<std::string> args)
-{
-    std::string dir = std::getenv("USER");
-    if (args.size() > 1)
-    {
-        dir = args[1];
-    }
-
-    chdir(dir.c_str());
-}
+bool is_login_shell = false;
 
 std::string prompt()
 {
@@ -129,36 +32,14 @@ std::string prompt()
     return "[" + pathStr + "] " + user + " : ";
 }
 
-void setEnv(std::vector<std::string> args)
-{
-    if (args.size() != 3)
-        return;
-    for (int i = 1; i < args.size(); i++)
-    {
-        setenv(args[1].c_str(), args[2].c_str(), 1);
-    }
-}
-
-bool hasFlag(int argc, char **argv, const std::string &flag)
-{
-    for (int i = 0; i < argc; ++i)
-    {
-        if (argv[i] == flag)
-        {
-            return true;
-        }
-    }
-    return false;
-}
-
 int main(int argc, char **argv)
 {
-    bool is_login_shell = false;
+    Config::load();
     if (argv[0][0] == '-')
     {
         is_login_shell = true;
     }
-    if (hasFlag(argc, argv, "--login"))
+    if (Parse::hasFlag(argc, argv, "--login"))
     {
         is_login_shell = true;
     }
@@ -172,18 +53,12 @@ int main(int argc, char **argv)
         char *input = readline(prompt().c_str());
         add_history(input);
 
-        std::vector<std::string> args = splitInput(std::string(input), ' ');
+        std::vector<std::string> args = Parse::input(std::string(input), ' ');
 
         if (args[0] == "exit")
             return 0;
-        else if (args[0] == "cd")
-            changeDir(args);
-        else if (args[0] == "set")
-            setEnv(args);
-        else if (args[0] == "unset")
-            unsetEnv(args);
-        else
-            exec(args);
+
+        Exec::run(args);
     }
 
     return 0;
